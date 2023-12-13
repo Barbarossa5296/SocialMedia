@@ -55,7 +55,8 @@ ROOT_URLCONF = 'SocialMediaProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'SocialMediaProject'/'templates',
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
