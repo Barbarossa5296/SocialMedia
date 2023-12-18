@@ -1,4 +1,5 @@
 from django.db import models
+# python manage.py shell_plus --print-sql
 
 
 class Forum(models.Model):
