@@ -14,16 +14,32 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'temporary/about.html', {'title': 'Контакты'})
+    data = {
+        'title': 'Контакты',
+        'menu': menu
+    }
+    return render(request, 'temporary/about.html', context=data)
 
 
 def messages(request):
-    return render(request, 'temporary/messages.html', {'title': 'Сообщения'})
+    data = {
+        'title': 'Сообщения',
+        'menu': menu
+    }
+    return render(request, 'temporary/messages.html', context=data)
 
 
 def comrades(request):
-    return render(request, 'temporary/friends.html', {'title': 'Товарищи'})
+    data = {
+        'title': 'Товарищи',
+        'menu': menu
+    }
+    return render(request, 'temporary/comrades.html', context=data)
 
 
 def forum(request):
-    return render(request, 'temporary/forum.html', {'title': 'Форум'})
+    data = {
+        'title': 'Форум',
+        'menu': menu
+    }
+    return render(request, 'temporary/forum.html', context=data)
