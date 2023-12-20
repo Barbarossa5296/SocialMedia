@@ -2,17 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-menu = [
-    {'title': 'Главная'},
-    {'title': 'Товарищи'},
-    {'title': 'Сообщения'},
-    {'title': 'Форум'},
-    {'title': 'Контакты'},
-]
+menu = ['Товарищи', 'Сообщения', 'Форум', 'Контакты']
 
 
 def index(request):
-    return render(request, 'temporary/index.html', {'title': 'Главная страница'})
+    data = {
+        'title': 'Главная страница',
+        'menu': menu
+    }
+    return render(request, 'temporary/index.html', context=data)
 
 
 def about(request):

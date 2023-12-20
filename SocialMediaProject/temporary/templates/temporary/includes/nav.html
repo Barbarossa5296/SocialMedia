@@ -1,9 +1,27 @@
-{% load bootstrap5 %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-{% bootstrap_css %}
-<div class="btn-group-vertical" role="group" aria-label="Apps">
-  <button type="button" class="--bs-info-bg-subtle">Кнопка</button>
-  <button type="button" class="btn btn-primary">Кнопка</button>
-  <button type="button" class="btn btn-primary">Кнопка</button>
-  <button type="button" class="btn btn-primary">Кнопка</button>
-</div>
+
+<nav class="navbar navbar-expand-lg fixed-top ">
+   <a class="navbar-brand" href="#">Главная страница</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+<div class="collapse navbar-collapse " id="navbarSupportedContent">
+     <ul class="navbar-nav mr-4">
+{% comment %} позже сократить это через меню в представления {% endcomment %}
+       <li class="nav-item">
+         <a class="nav-link" href="#">Сообщения</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link " href="#">Форум</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link " href="#">Товарищи</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link " href="#">Контакты</a>
+       </li>
+     </ul>
+     
+   </div>
+</nav>
