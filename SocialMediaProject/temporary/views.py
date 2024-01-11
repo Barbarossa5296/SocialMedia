@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-menu = ['Товарищи', 'Сообщения', 'Форум', 'Контакты']
+menu = ['Товарищи', 'Сообщения', 'Форум', 'О сайте']
 
 
 def index(request):
@@ -15,7 +15,7 @@ def index(request):
 
 def about(request):
     data = {
-        'title': 'Контакты',
+        'title': 'О сайте',
         'menu': menu
     }
     return render(request, 'temporary/about.html', context=data)
@@ -29,12 +29,12 @@ def messages(request):
     return render(request, 'temporary/messages.html', context=data)
 
 
-def comrades(request):
+def contacts(request):
     data = {
-        'title': 'Товарищи',
+        'title': 'Контакты',
         'menu': menu
     }
-    return render(request, 'temporary/comrades.html', context=data)
+    return render(request, 'temporary/contacts.html', context=data)
 
 
 def forum(request):
