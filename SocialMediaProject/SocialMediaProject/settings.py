@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'temporary.apps.TemporaryConfig',
+    'bootstrap5'
 
 ]
 

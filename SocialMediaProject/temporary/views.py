@@ -2,30 +2,44 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-menu = [
-    {'title': 'Главная'},
-    {'title': 'Товарищи'},
-    {'title': 'Сообщения'},
-    {'title': 'Форум'},
-    {'title': 'Контакты'},
-]
+menu = ['Товарищи', 'Сообщения', 'Форум', 'О сайте']
 
 
 def index(request):
-    return render(request, 'temporary/index.html', {'title': 'Главная страница'})
+    data = {
+        'title': 'Главная страница',
+        'menu': menu
+    }
+    return render(request, 'temporary/index.html', context=data)
 
 
 def about(request):
-    return render(request, 'temporary/about.html', {'title': 'Контакты'})
+    data = {
+        'title': 'О сайте',
+        'menu': menu
+    }
+    return render(request, 'temporary/about.html', context=data)
 
 
 def messages(request):
-    return render(request, 'temporary/messages.html', {'title': 'Сообщения'})
+    data = {
+        'title': 'Сообщения',
+        'menu': menu
+    }
+    return render(request, 'temporary/messages.html', context=data)
 
 
-def comrades(request):
-    return render(request, 'temporary/friends.html', {'title': 'Товарищи'})
+def contacts(request):
+    data = {
+        'title': 'Контакты',
+        'menu': menu
+    }
+    return render(request, 'temporary/contacts.html', context=data)
 
 
 def forum(request):
-    return render(request, 'temporary/forum.html', {'title': 'Форум'})
+    data = {
+        'title': 'Форум',
+        'menu': menu
+    }
+    return render(request, 'temporary/forum.html', context=data)
