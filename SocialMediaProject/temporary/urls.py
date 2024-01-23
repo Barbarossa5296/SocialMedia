@@ -6,6 +6,6 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('contacts/', views.contacts, name='contacts'),
     path('messages/', views.messages, name='messages'),
-    path('forum/', views.forum, name='forum'),
+    path('forum/', views.AddPost.as_view(), name='forum'),
 
 ]

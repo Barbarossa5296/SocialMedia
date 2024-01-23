@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.urls import reverse_lazy
+from django.views.generic import FormView
+
+from temporary.forms import AddPostForm
 
 
 menu = ['Товарищи', 'Сообщения', 'Форум', 'О сайте']
@@ -37,9 +41,18 @@ def contacts(request):
     return render(request, 'temporary/contacts.html', context=data)
 
 
-def forum(request):
-    data = {
-        'title': 'Форум',
-        'menu': menu
-    }
-    return render(request, 'temporary/forum.html', context=data)
+# def forum(request):
+#     data = {
+#         'title': 'Форум',
+#         'menu': menu
+#     }
+#     return render(request, 'temporary/forum.html', context=data)
+
+class AddPost(FormView):
+    form_class = AddPostForm
+    template_name = 'temporary/forum.html'
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
