@@ -2,10 +2,8 @@ from django.http import HttpResponse
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse_lazy
-from .forms import LoginUserForm
-
-# def login_user(request):
-#     return HttpResponse("login")
+from .forms import LoginUserForm, RegisterUserForm
+from django.views.generic import CreateView
 
 
 class LoginUser(LoginView):
@@ -16,5 +14,7 @@ class LoginUser(LoginView):
         return reverse_lazy('home')
 
 
-# def logout_user(request):
-#     return HttpResponse("logout")
+class RegisterUser(CreateView):
+    form_class = RegisterUserForm
+    template_name = 'users/register.html'
+    success_url = reverse_lazy('users:login')

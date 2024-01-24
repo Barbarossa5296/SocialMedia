@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import FormView
+from django.contrib.auth.decorators import login_required
 
 from temporary.forms import AddPostForm
 
@@ -33,6 +34,7 @@ def messages(request):
     return render(request, 'temporary/messages.html', context=data)
 
 
+@login_required(login_url='users:login')
 def contacts(request):
     data = {
         'title': 'Контакты',
