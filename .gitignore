@@ -3,5 +3,5 @@
 __pycache__
 *.pyc
 test.html
-db.
-initial.py
+db.*
+*initial.py
