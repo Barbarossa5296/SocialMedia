@@ -3,4 +3,5 @@
 __pycache__
 *.pyc
 test.html
-db.sqlite3
+db.
+initial.py
