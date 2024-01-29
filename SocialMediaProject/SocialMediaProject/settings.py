@@ -119,13 +119,11 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -147,3 +145,5 @@ SERVER_EMAIL = EMAIL_HOST_USER
 EMAIL_ADMIN = EMAIL_HOST_USER
 
 AUTH_USER_MODEL = 'users.User'
+
+DEFAULT_USER_IMAGE = MEDIA_URL + 'users/default.png'
