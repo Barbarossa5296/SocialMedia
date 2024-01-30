@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'temporary.apps.TemporaryConfig',
     'users.apps.UsersConfig',
     'bootstrap5',
+    'social_django',
 
 ]
 
@@ -129,7 +130,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGOUT_REDIRECT_URL = 'home'
 
-AUTHENTICATION_BACKENDS = ["django.contrib.auth.backends.ModelBackend",
+AUTHENTICATION_BACKENDS = ['social_core.backends.github.GithubOAuth2',
+                           'django.contrib.auth.backends.ModelBackend',
                            'users.authentication.EmailAuthBackend',]
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
