@@ -6,3 +6,5 @@ test.html
 db.*
 *initial.py
 test.py
+*.crt
+*.key
