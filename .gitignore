@@ -8,3 +8,4 @@ db.*
 test.py
 *.crt
 *.key
+email_password*
