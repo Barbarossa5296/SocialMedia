@@ -9,3 +9,5 @@ test.py
 *.crt
 *.key
 email_password*
+media
+migrations
