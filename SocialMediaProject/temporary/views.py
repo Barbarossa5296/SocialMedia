@@ -7,8 +7,14 @@ from django.urls import reverse_lazy
 from django.views.generic import FormView
 from django.contrib.auth.decorators import login_required
 from .models import Forum
-
+from rest_framework import viewsets
+from .serializers import ForumSerializer
 from temporary.forms import AddPostForm
+
+
+class ForumViewSet(viewsets.ModelViewSet):
+    queryset = Forum.objects.all()
+    serializer_class = ForumSerializer
 
 
 class HomePage(ListView):

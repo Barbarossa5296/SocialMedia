@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'bootstrap5',
     'social_django',
+    'rest_framework',
 
 ]
 
