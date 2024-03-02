@@ -8,4 +8,6 @@
 {% endif %}
 
 {{post.content|linebreaks}}
+<a href="{% url 'edit_post' slug=post.slug %}">Изменить</a>
+
 {% endblock %}
