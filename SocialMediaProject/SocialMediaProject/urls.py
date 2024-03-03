@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('temporary.urls')),
     path('users/', include('users.urls', namespace='users')),
     path('social-auth/', include('social_django.urls', namespace='social')),
+    path('', include('comments.urls'))
 
 ]
 

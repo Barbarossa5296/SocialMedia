@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'social_django',
     'rest_framework',
+    'comments.apps.CommentsConfig',
 
 ]
 

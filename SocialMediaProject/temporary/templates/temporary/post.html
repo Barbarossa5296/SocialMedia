@@ -1,13 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{post.title}}</h1>
+    <h1>{{post.title}}</h1>
 
-{% if post.photo %}
-<p><img class="img-article-left" src="{{post.photo.url}}"></p>
-{% endif %}
+    {% if post.photo %}
+    <p><img class="img-article-left" src="{{post.photo.url}}"></p>
+    {% endif %}
 
-{{post.content|linebreaks}}
-<a href="{% url 'edit_post' slug=post.slug %}">Изменить</a>
+    {{post.content|linebreaks}}
+    <a href="{% url 'edit_post' slug=post.slug %}">Изменить</a>
+
+    <h2>Комментарии</h2>
+    {% for comment in post.comments.all %}
+        <p>{{ comment.author.username }} - {{ comment.created_at }}</p>
+        <p>{{ comment.text }}</p>
+    {% endfor %}
+
+    <form method="post" action="{% url 'comments:add_comment_to_post' slug=post.slug %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить комментарий</button>
+    </form>
 
 {% endblock %}
