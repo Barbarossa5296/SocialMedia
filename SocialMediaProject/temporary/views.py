@@ -21,6 +21,9 @@ class HomePage(ListView):
     template_name = 'temporary/index.html'
     model = Forum
 
+    def get_queryset(self):
+        return Forum.objects.filter(is_published=True)
+
 
 class About(TemplateView):
     template_name = 'temporary/about.html'

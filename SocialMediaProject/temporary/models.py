@@ -17,7 +17,7 @@ class Forum(models.Model):
         auto_now_add=True, verbose_name='Время создания')
     time_update = models.DateTimeField(
         auto_now=True, verbose_name='Время изменения')
-    is_published = models.BooleanField(default=True)
+    is_published = models.BooleanField(default=True, verbose_name="Публикация")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Slug", validators=[
         MinLengthValidator(5, message="Минимум 5 символов"),
         MaxLengthValidator(100, message="Максимум 100 символов"),
