@@ -5,4 +5,4 @@ from .models import Forum
 class AddPostForm(forms.ModelForm):
     class Meta:
         model = Forum
-        fields = "__all__"
+        fields = ['title', 'content', 'photo', 'is_published']

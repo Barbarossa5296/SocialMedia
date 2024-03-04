@@ -46,3 +46,4 @@ pydantic_settings==2.1.0
 redis==5.0.1
 hiredis==2.3.2
 djangorestframework==3.14.0
+transliterate-1.10.2

@@ -46,13 +46,13 @@ def contacts(request):
 
 class AddPost(CreateView):
     model = Forum
-    fields = '__all__'
+    form_class = AddPostForm
     template_name = 'temporary/add_post.html'
 
 
 class EditPost(UpdateView):
     model = Forum
-    fields = '__all__'
+    form_class = AddPostForm
     template_name = 'temporary/add_post.html'
 
 
