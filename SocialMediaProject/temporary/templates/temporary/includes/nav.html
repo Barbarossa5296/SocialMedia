@@ -17,6 +17,9 @@
        <li class="nav-item">
          <a class="nav-link " href="{% url 'contacts' %}">Контакты</a>
        </li>
+       <li class="nav-item">
+         <a class="nav-link " href="{% url 'my_posts' %}">Мои статьи</a>
+       </li>
        {% if user.is_authenticated %}
         <li class="nav-item"> <a href="{% url 'users:profile' %}">{{user.username}}</a> | <a href="{% url 'users:logout' %}">Выйти</a></li>
        {% else %}

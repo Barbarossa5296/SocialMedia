@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<ul>
+    {% for p in object_list %}
+    {% if p.photo %}
+		<p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>
+{% endif %}
+				<h2>{{p.title}}</h2>
+    {% autoescape off %} 
+	{{p.content|linebreaks|truncatewords:40}}
+	{% with author_line="Автор: " %}
+                {{ author_line|safe }}{{ p.author }} - {{ p.time_create|date:"d.m.Y" }}
+    {% endwith %}
+    {% endautoescape %}
+			<div class="clear"></div>
+			<p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать пост</a></p>
+			<a href="{% url 'edit_post' slug=p.slug %}">Изменить</a>
+
+			</li>
+	{% endfor %}
+    
+</ul>
+
+{% endblock content %}

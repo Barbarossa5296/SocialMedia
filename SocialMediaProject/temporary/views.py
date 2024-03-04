@@ -73,3 +73,12 @@ class ShowPost(DetailView):
     model = Forum
     template_name = 'temporary/post.html'
     context_object_name = 'post'
+
+
+class MyPosts(ListView):
+    template_name = 'temporary/my_posts.html'
+    model = Forum
+
+    def get_queryset(self):
+        author = self.request.user
+        return Forum.objects.filter(author=author)

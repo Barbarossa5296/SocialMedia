@@ -16,5 +16,6 @@ urlpatterns = [
          views.EditPost.as_view(), name='edit_post'),
     path('post/<slug:slug>/', views.ShowPost.as_view(), name='post'),
     path('api/', include(router.urls)),
+    path('myposts/', views.MyPosts.as_view(), name='my_posts')
 
 ]
