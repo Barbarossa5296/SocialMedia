@@ -3,23 +3,54 @@
 <html>
 
 <head>
-	<title>{{title}}</title>
+	<title>{{ title }}</title>
 	<link rel="stylesheet" href="{% static "temporary/css/bootstrap.min.css" %}">
 	<script type="text/javascript" src="{% static 'temporary/js/main.js' %}"></script>
-	<link type="text/css" href="{% static 'temporary/css/styles.css' %}" rel="stylesheet" />
+	{% comment %} <link type="text/css" href="{% static 'temporary/css/styles.css' %}" rel="stylesheet" /> {% endcomment %}
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="shortcut icon" href="{% static 'temporary/images/favicon.ico' %}" type="image/x-icon" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.bg-gray {
+			background-color: #f0f0f0;
+		}
+	</style>
 </head>
 
-<body>
-	{% include "temporary/includes/nav.html" %}
+<body class="bg-gray">
+	<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+		<a class="btn btn-outline-light btn-lg" href="{% url 'home' %}">Главная страница</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-4 ml-auto">
+				{% if user.is_authenticated %}
+				<li class="nav-item dropdown">
+					<a class="btn btn-outline-light dropdown-toggle gx-4" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+						Статьи
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<li><a class="btn btn-outline-light" href="{% url 'my_posts' %}">Мои статьи</a></li>
+						<li><a class="btn btn-outline-light" href="{% url 'add_post' %}">Добавить статью</a></li>
+					</ul>
+				</li>
+				<li class="nav-item"> <a class="btn btn-outline-light" href="{% url 'users:profile' %}">{{user.username}}</a> | <a class="btn btn-outline-light" href="{% url 'users:logout' %}">Выйти</a></li>
+				{% else %}
+				<li class="nav-item"><a class="btn btn-outline-light" href="{% url 'users:login' %}">Войти</a> | <a class="btn btn-outline-light" href="{% url 'users:register' %}">Регистрация</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</nav>
 	<header class="header">
 	
 	</header>
-
+  <div class="container mt-4">
+	<div class="bg-light p-3">
 	{% block content %}
 	{% endblock content %}
+	</div>
+  </div>
 
 </body>
 </html>

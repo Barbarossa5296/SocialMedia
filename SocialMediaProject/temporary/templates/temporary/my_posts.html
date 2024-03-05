@@ -1,29 +1,31 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 {% extends "base.html" %}
 
 {% block content %}
-<ul>
+<div class="container mt-4">
     {% for p in object_list %}
-    {% if p.photo %}
-		<p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>
-{% endif %}
-				<h2>{{p.title}}</h2>
-    {% autoescape off %} 
-	{{p.content|linebreaks|truncatewords:40}}
-	{% with author_line="Автор: " %}
-                {{ author_line|safe }}{{ p.author }} - {{ p.time_create|date:"d.m.Y" }}
-    {% endwith %}
-    {% endautoescape %}
-			<div class="clear"></div>
-			<p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать пост</a></p>
-			<a href="{% url 'edit_post' slug=p.slug %}">Изменить</a>
-			<form method="post" action="{% url 'delete_post' slug=p.slug %}">
-				{% csrf_token %}
-				<button type="submit">Удалить пост</button>
-			</form>
-
-			</li>
-	{% endfor %}
-    
-</ul>
-
+    <div class="card mb-4">
+        <div class="card-body">
+            {% if p.photo %}
+                <img class="card-img-top img-fluid" src="{{p.photo.url}}" alt="Post Image">
+            {% endif %}
+            <h2 class="card-title">{{p.title}}</h2>
+            {% autoescape off %} 
+                {{p.content|linebreaks|truncatewords:40}}
+                {% with author_line="Автор: " %}
+                    {{ author_line|safe }}{{ p.author }} - {{ p.time_create|date:"d.m.Y" }}
+                {% endwith %}
+            {% endautoescape %}
+            <div class="clear"></div>
+            <p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать пост</a></p>
+            <a class="btn btn-outline-primary" href="{% url 'edit_post' slug=p.slug %}">Изменить</a>
+            <form method="post" action="{% url 'delete_post' slug=p.slug %}">
+                {% csrf_token %}
+                <button class="btn btn-outline-danger" type="submit">Удалить пост</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock content %}
