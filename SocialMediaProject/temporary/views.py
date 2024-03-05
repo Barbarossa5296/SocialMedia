@@ -52,6 +52,10 @@ class AddPost(CreateView):
     form_class = AddPostForm
     template_name = 'temporary/add_post.html'
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
 
 class EditPost(UserPassesTestMixin, UpdateView):
     model = Forum
@@ -82,3 +86,9 @@ class MyPosts(ListView):
     def get_queryset(self):
         author = self.request.user
         return Forum.objects.filter(author=author)
+
+
+class DeletePost(DeleteView):
+    model = Forum
+    success_url = reverse_lazy('my_posts')
+    template_name = 'temporary/my_posts.html'

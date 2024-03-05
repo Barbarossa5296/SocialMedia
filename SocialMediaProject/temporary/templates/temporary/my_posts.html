@@ -16,6 +16,10 @@
 			<div class="clear"></div>
 			<p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать пост</a></p>
 			<a href="{% url 'edit_post' slug=p.slug %}">Изменить</a>
+			<form method="post" action="{% url 'delete_post' slug=p.slug %}">
+				{% csrf_token %}
+				<button type="submit">Удалить пост</button>
+			</form>
 
 			</li>
 	{% endfor %}
