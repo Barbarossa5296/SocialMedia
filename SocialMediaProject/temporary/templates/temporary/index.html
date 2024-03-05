@@ -3,12 +3,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-4"> <!-- обновлено -->
+<div class="container mt-4">
     {% for p in object_list %}
-    <div class="card mb-4"> <!-- добавлено -->
+    <div class="card mb-4">
         <div class="card-body">
             {% if p.photo %}
-                <img class="card-img-top img-fluid" src="{{p.photo.url}}" alt="Post Image"> <!-- обновлено -->
+                <img class="card-img-top img-fluid" src="{{p.photo.url}}" alt="Post Image"> 
             {% endif %}
             <h2 class="card-title">{{p.title}}</h2>
             {% autoescape off %} 
