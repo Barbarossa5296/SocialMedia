@@ -14,9 +14,7 @@ from django.contrib.auth import get_user_model
 class LoginUser(LoginView):
     form_class = LoginUserForm
     template_name = 'users/login.html'
-
-    def get_success_url(self) -> str:
-        return reverse_lazy('home')
+    success_url = reverse_lazy('home')
 
 
 class RegisterUser(CreateView):
@@ -31,9 +29,7 @@ class ProfileUser(LoginRequiredMixin, UpdateView):
     template_name = 'users/profile.html'
     extra_context = {'title': 'Профиль пользователя',
                      'default_image': settings.DEFAULT_USER_IMAGE}
-
-    def get_success_url(self) -> str:
-        return reverse_lazy('users:profile')
+    success_url = reverse_lazy('users:profile')
 
     def get_object(self, queryset: QuerySet[Any] | None = ...) -> Model:
         return self.request.user

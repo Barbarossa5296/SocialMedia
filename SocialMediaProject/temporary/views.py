@@ -32,21 +32,6 @@ class About(TemplateView):
     template_name = 'temporary/about.html'
 
 
-def messages(request):
-    data = {
-        'title': 'Сообщения',
-    }
-    return render(request, 'temporary/messages.html', context=data)
-
-
-@login_required(login_url='users:login')  # переделать в класс
-def contacts(request):
-    data = {
-        'title': 'Контакты',
-    }
-    return render(request, 'temporary/contacts.html', context=data)
-
-
 class AddPost(CreateView):
     model = Forum
     form_class = AddPostForm
