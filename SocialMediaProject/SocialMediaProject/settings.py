@@ -18,6 +18,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'happypirateship.ru']
 INTERNAL_IPS = ['127.0.0.1']
 
+LOGIN_REDIRECT_URL = '/'
 
 # Application definition
 
