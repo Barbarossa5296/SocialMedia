@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'social_django',
     'rest_framework',
     'comments.apps.CommentsConfig',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -156,3 +157,4 @@ AUTH_USER_MODEL = 'users.User'
 
 DEFAULT_USER_IMAGE = MEDIA_URL + 'users/default.png'
 LOGIN_URL = "users:login"
+SITE_ID = 1
